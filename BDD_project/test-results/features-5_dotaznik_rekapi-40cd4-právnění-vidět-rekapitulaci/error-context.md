@@ -1,0 +1,47 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - heading "Ukázka BDD projektu" [level=1] [ref=e4]
+  - generic [ref=e5]:
+    - heading "Dotazník" [level=2] [ref=e6]
+    - generic [ref=e7]:
+      - text: "Role:"
+      - combobox [disabled] [ref=e8]:
+        - option "Uživatel" [selected]
+        - option "Schvalovatel"
+      - button "Přepnout na schvalovatele" [active] [ref=e9] [cursor=pointer]
+    - group "Otázka 1" [ref=e10]:
+      - generic [ref=e11]: Otázka 1
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - radio "Odpověď 1" [checked] [disabled] [ref=e14]
+          - text: Odpověď 1
+        - generic [ref=e15]:
+          - radio "Odpověď 2" [disabled] [ref=e16]
+          - text: Odpověď 2
+        - generic [ref=e17]:
+          - radio "Odpověď 3" [disabled] [ref=e18]
+          - text: Odpověď 3
+    - group "Otázka 2" [ref=e19]:
+      - generic [ref=e20]: Otázka 2
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - radio "Odpověď 1" [disabled] [ref=e23]
+          - text: Odpověď 1
+        - generic [ref=e24]:
+          - radio "Odpověď 2" [checked] [disabled] [ref=e25]
+          - text: Odpověď 2
+        - generic [ref=e26]:
+          - radio "Odpověď 3" [disabled] [ref=e27]
+          - text: Odpověď 3
+    - 'group "Otázka 3: Komentář (povinné)" [ref=e28]':
+      - generic [ref=e29]: "Otázka 3: Komentář (povinné)"
+      - textbox "Váš komentář..." [disabled] [ref=e30]: Testovací komentář
+    - button "Odeslat" [disabled] [ref=e31]
+    - generic [ref=e32]:
+      - generic [ref=e33]: Dotazník byl odeslán!
+      - generic [ref=e34]:
+        - text: Dotazník byl schválen.
+        - generic [ref=e35]: "Komentář schvalovatele: Schváleno"
+```
