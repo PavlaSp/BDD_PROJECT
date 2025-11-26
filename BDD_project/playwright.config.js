@@ -9,4 +9,10 @@ const testDir = defineBddConfig({
 export default defineConfig({
   testDir,
   reporter: 'html',
+  webServer: {
+    command: 'npm run start -- --port 3000',
+    url: 'http://localhost:3000',
+    timeout: 120000,
+    reuseExistingServer: !process.env.CI
+  }
 });
