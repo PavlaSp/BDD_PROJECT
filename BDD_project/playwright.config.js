@@ -8,11 +8,14 @@ const testDir = defineBddConfig({
 
 export default defineConfig({
   testDir,
-  reporter: 'html',
+  reporter: [
+    ['html', { outputFolder: 'playwright-report' }],
+    ['github']
+  ],
   webServer: {
-    command: 'npm run start',           // start skript v package.json
-    url: 'http://localhost:3000',       // kam testy cílí
-    timeout: 120_000,
+    command: 'npm run start',
+    url: 'http://localhost:3000',
+    timeout: 120000,
     reuseExistingServer: true           // pokud už server běží, Playwright ho znovu nepustí
   }
 });

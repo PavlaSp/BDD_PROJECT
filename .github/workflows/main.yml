@@ -44,6 +44,16 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Zip Playwright report (if exists)
+        if: always()
+        run: |
+          cd BDD_project
+          if [ -d playwright-report ]; then
+            zip -r playwright-report.zip playwright-report
+          else
+            echo "No playwright-report directory found"
+          fi
+
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
