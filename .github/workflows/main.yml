@@ -40,9 +40,6 @@ jobs:
           ls -la playwright-report || true
           ls -la $GITHUB_WORKSPACE/playwright-report || true
           ls -la $GITHUB_WORKSPACE/BDD_project/playwright-report || true
-          
-      - name: Start Vite server (background) 
-        run: npm run start -- --port 3000 & npx wait-on http://localhost:3000 -t 120000
 
       - name: Run Playwright tests
         run: npx playwright test

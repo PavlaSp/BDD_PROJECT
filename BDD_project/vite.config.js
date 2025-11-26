@@ -4,6 +4,6 @@ export default {
   plugins: [react()],
   server: {
     port: 3000,
-    open: true
+    open: process.env.CI ? false : true
   }
 };
