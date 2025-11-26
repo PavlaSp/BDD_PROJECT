@@ -14,21 +14,39 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: Install dependencies
         run: npm ci
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+
       - name: Generate BDD tests
         run: npx bddgen
+
+      - name: Show generated files (debug)
+        if: always()
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "PWD: $(pwd)"
+          echo "Listing current dir:"
+          ls -la
+          echo "Listing possible report locations (if any):"
+          ls -la playwright-report || true
+          ls -la $GITHUB_WORKSPACE/playwright-report || true
+          ls -la $GITHUB_WORKSPACE/BDD_project/playwright-report || true
+
       - name: Run Playwright tests
         run: npx playwright test
+
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: playwright-report  # pokud report vzniká v BDD_project
+          path: BDD_project/playwright-report
