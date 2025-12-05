@@ -12,6 +12,9 @@ export default defineConfig({
     ['html', { outputFolder: 'playwright-report' }],
     ['github']
   ],
+  use: {
+    trace: 'on',
+   },
   webServer: {
     command: 'npm run start',
     url: 'http://localhost:3000',
