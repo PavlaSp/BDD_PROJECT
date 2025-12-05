@@ -9,6 +9,7 @@ const testDir = defineBddConfig({
 export default defineConfig({
   testDir,
   reporter: [
+    ['list']
     ['html', { outputFolder: 'playwright-report' }],
     ['github']
   ],
