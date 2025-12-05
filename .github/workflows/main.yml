@@ -8,9 +8,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: BDD_project
+     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,12 +20,15 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: BDD_project
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
-
+        working-directory: BDD_project
+       
       - name: Generate BDD tests
         run: npx bddgen
+        working-directory: BDD_project
 
       - name: Show generated files (debug)
         if: always()
@@ -43,13 +44,13 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
+        working-directory: BDD_project
 
       - name: Zip Playwright report (if exists)
         if: always()
         run: |
-          cd BDD_project
-          if [ -d playwright-report ]; then
-            zip -r playwright-report.zip playwright-report
+          if [ -d BDD_project/playwright-report ]; then
+            zip -r playwright-report.zip BDD_project/playwright-report
           else
             echo "No playwright-report directory found"
           fi
