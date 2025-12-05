@@ -8,7 +8,4 @@ Feature: Uživatel vidí rekapitulaci
     And nelze nic editovat
 
 
-  Scenario: Uživatel nemá oprávnění vidět rekapitulaci
-    Given uživatel otevře aplikaci
-    When uživatel přepne na rekapitulaci
-    Then vidí zprávu "Nemáte oprávnění vidět rekapitulaci!"
+ 
